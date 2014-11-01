@@ -1,0 +1,6 @@
+{
+    "require": {
+        "zendframework/zendframework1": "~1.12",
+        "zendframework/zf1-extras": "~1.12"
+    }
+}
