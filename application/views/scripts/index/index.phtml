@@ -1,3 +1,12 @@
+<?php
+
+use DebugBar\StandardDebugBar;
+
+$debugbar = new StandardDebugBar();
+$debugbarRenderer = $debugbar->getJavascriptRenderer();
+
+?>
+
 <style>
     body {
         margin: 0;
@@ -29,6 +38,17 @@
     }
 </style>
 
+<style>
+    <?php echo $debugbarRenderer->dumpCssAssets(); ?>
+</style>
+
+<!-- Manually import font-awesome 'cause debugBar is too dumb to have a proper path to the fonts -->
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css"/>
+
+<script>
+    <?php echo $debugbarRenderer->dumpJsAssets(); ?>
+</script>
+
 <div id="welcome">
     <h1>Welcome to the <span id="zf-name">Zend Framework!</span></h1>
     <h3>This is your project's main page</h3>
@@ -45,3 +65,5 @@
         </p>
     </div>
 </div>
+
+<?php echo $debugbarRenderer->render(); ?>
